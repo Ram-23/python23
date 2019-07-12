@@ -1,0 +1,31 @@
+import PySimpleGUI27 as sg
+import sys
+
+a,b,c=[],[],[]
+l = len(sys.argv)
+if l >=10 :
+    for i in range(1,l):
+        a.append(sys.argv[i])
+else:
+    for i in range(1,l):
+        a.append(sys.argv[i])
+    for i in range(l,10):
+        a.append('0')
+              
+layout = [      
+          [sg.Text('Please enter your Values')],      
+          [sg.Text('current', size=(5,1)), sg.InputText(a[0], size=(8,1)), sg.Text('', size=(1,1)), sg.InputText(a[1],size=(8,1)) , sg.Text('', size=(1,1)), sg.InputText(a[2],size=(8,1))],
+           [sg.Text(' '  * 100, size=(35, 1))],
+          [sg.Text('voltage', size=(5,1)), sg.InputText(a[3],size=(8,1)) , sg.Text('', size=(1,1)), sg.InputText(a[4],size=(8,1)) , sg.Text('', size=(1,1)), sg.InputText(a[5],size=(8,1))],
+           [sg.Text(' '  * 100, size=(35, 1))],
+          [sg.Text('Phase', size=(5,1)), sg.InputText(a[6],size=(8,1)) , sg.Text('', size=(1,1)), sg.InputText(a[7],size=(8,1)) , sg.Text('', size=(1,1)), sg.InputText(a[8],size=(8,1))],
+           [sg.Text(' '  * 100, size=(35, 1))],
+          [sg.Submit(), sg.Cancel()]      
+         ]
+
+window = sg.Window('Simple data entry window').Layout(layout)         
+button, s = window.Read()
+print button #, s[0] , s[1] , s[2] , s[3] , s[4] , s[5] , s[6] , s[7] , s[8]
+for i in range(0,9):
+    print s[i]
+
